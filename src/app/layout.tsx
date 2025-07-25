@@ -1,5 +1,5 @@
-// src/app/layout.tsx
 import { ClerkProvider } from '@clerk/nextjs';
+import { dark } from '@clerk/themes'; // Import the dark theme
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
@@ -18,11 +18,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      appearance={{
+        baseTheme: dark,
+      }}
+    >
       <html lang="en" className="dark">
         <body className={inter.className}>
           <Navbar />
-          <main>{children}</main>
+          <main className="pt-16">{children}</main>
         </body>
       </html>
     </ClerkProvider>

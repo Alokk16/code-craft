@@ -1,6 +1,9 @@
-// src/app/sign-up/[[...sign-up]]/page.tsx
-import { SignUp } from '@clerk/nextjs';
+import { SignUp } from "@clerk/nextjs";
 
 export default function Page() {
-  return <SignUp path="/sign-up" />;
+  return (
+    <div className="flex items-center justify-center h-screen">
+      <SignUp />
+    </div>
+  );
 }
