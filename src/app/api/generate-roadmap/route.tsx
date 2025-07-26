@@ -2,9 +2,14 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
-import { supabase } from '@/lib/supabaseClient';
+// ⛔ REMOVED: import { supabase } from '@/lib/supabaseClient';
+// ✨ ADDED: Import the new server client creator
+import { createClerkSupabaseClient } from '@/lib/supabase/server';
 
 export async function POST(request: Request) {
+  // ✨ ADDED: Create an authenticated Supabase client instance for this request
+  const supabase = createClerkSupabaseClient();
+
   console.log('API route hit. Processing request...');
 
   // Step 1: Check for Google API Key
@@ -56,7 +61,7 @@ export async function POST(request: Request) {
     const jsonData = JSON.parse(jsonText);
     console.log('Successfully parsed JSON from Gemini response.');
 
-    // Step 4: Save to Supabase
+    // Step 4: Save to Supabase (This now uses the authenticated client)
     const slug = domain.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]+/g, '');
     console.log(`Saving to Supabase with slug: ${slug}`);
 
