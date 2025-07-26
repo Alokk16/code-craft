@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { CodeXml } from 'lucide-react';
-import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs'; // Import Clerk components
+import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 
 const Navbar = () => {
   return (
@@ -14,7 +14,15 @@ const Navbar = () => {
 
         {/* Main Navigation Links */}
         <nav className="hidden items-center gap-6 md:flex">
-          {/* ... nav links ... */}
+          <Link href="/roadmaps" className="text-sm font-medium text-gray-300 transition-colors hover:text-white">
+            Roadmaps
+          </Link>
+          <Link href="/resources" className="text-sm font-medium text-gray-300 transition-colors hover:text-white">
+            Resources
+          </Link>
+          <Link href="/community" className="text-sm font-medium text-gray-300 transition-colors hover:text-white">
+            Community
+          </Link>
         </nav>
 
         {/* Auth Buttons */}
