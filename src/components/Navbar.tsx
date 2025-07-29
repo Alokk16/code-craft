@@ -22,6 +22,9 @@ const Navbar = () => {
           <Link href="/community" className="text-sm font-medium text-gray-300 transition-colors hover:text-white">
             Community
           </Link>
+          <Link href="/resume-analyzer" className="text-sm font-medium text-gray-300 transition-colors hover:text-white">
+  Resume Analyzer
+         </Link>
         </nav>
 
         <div className="flex items-center gap-4">
