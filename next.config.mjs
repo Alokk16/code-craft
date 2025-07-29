@@ -12,6 +12,10 @@ const nextConfig = {
   },
   webpack: (config) => {
     config.resolve.alias.canvas = false;
+    // Add this fallback configuration
+    config.resolve.fallback = {
+      "fs": false
+    };
     return config;
   },
 };
